@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         String text = ((MaterialButton) view).getText().toString();
         if (text.equals("AC")) {
             textView.setText("0");
+            isDotLine=false;
         } else if (textView.getText().toString().equals("0") || isOperationClick) {
             if (text.equals(".")) {
                 textView.setText("0.");
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             if (text.equals(".")) {
                 if (!isDotLine) {
-                    textView.append(text);
+                    textView.append(".".toString());
                     isDotLine = true;
                 }
             } else {
@@ -65,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(result.toString().replace(".0", ""));
         } else {
             textView.setText(result.toString());
-            isDotLine = true;
         }
     }
 
@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(result.toString().replace(".0", ""));
         } else {
             textView.setText(result.toString());
-            isDotLine = true;
         }
     }
 
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(result.toString().replace(".0", ""));
         } else {
             textView.setText(result.toString());
-            isDotLine = true;
+
         }
     }
 
@@ -95,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(result.toString().replace(".0", ""));
         } else {
             textView.setText(result.toString());
-            isDotLine = true;
         }
 
     }
@@ -129,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
             } else if (Double.valueOf(text) < 0) {
                 textView.setText(text.replace("-", ""));
             }
-            isDotLine = true;
         }
     }
 }
