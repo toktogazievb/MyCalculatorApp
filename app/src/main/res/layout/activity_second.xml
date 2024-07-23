@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue"
+    tools:context=".SecondActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginHorizontal="9dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/container_shape"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:background="@drawable/heart_shape"
+            android:backgroundTint="@color/pinky"
+            android:onClick="onHeartClick"
+            android:src="@drawable/ic_heart"
+            app:layout_constraintEnd_toEndOf="@id/container"
+            app:layout_constraintTop_toTopOf="@id/container" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/text_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="132dp"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/pinky"
+            android:clickable="false"
+            android:gravity="center"
+            android:insetTop="10dp"
+            android:insetBottom="16dp"
+            android:text="@string/category"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/result_text"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/explore_the_nightlife_of_your_n_city"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_category" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/result_text">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Into.Container.TextView"
+                    android:text="@string/free"
+                    android:textSize="18sp" />
+
+                <TextView
+                    style="@style/Into.Container.TextView"
+                    android:text="@string/price"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        style="@style/ImageViews"
+                        android:src="@drawable/ic_one" />
+
+                    <ImageView
+                        style="@style/ImageViews"
+                        android:src="@drawable/ic_two" />
+
+                    <ImageView
+                        style="@style/ImageViews"
+                        android:src="@drawable/ic_three" />
+
+                    <ImageView
+                        style="@style/ImageViews"
+                        android:src="@drawable/ic_more" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Into.Container.TextView"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/participants"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="6dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/linear_gradient" />
+
+                <TextView
+                    style="@style/Into.Container.TextView"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/accessibility"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:onClick="onNextClick"
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginHorizontal="9dp"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/button_gradient"
+        android:text="@string/next"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_next">
+
+
+        <TextView
+            android:id="@+id/category_text"
+            style="@style/Second.Type.TextView"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/category_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/accessibility_text"
+            style="@style/Second.Type.TextView"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="160dp"
+            android:text="@string/accessibility_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/price_text"
+            app:layout_constraintTop_toBottomOf="@id/price_text" />
+
+        <TextView
+            android:id="@+id/price_text"
+            style="@style/Second.Type.TextView"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/price_name"
+            app:layout_constraintStart_toEndOf="@id/category_text"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/slider"
+            android:layout_width="176dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="60dp"
+            android:backgroundTint="@color/white"
+            android:foregroundTint="@color/blue"
+            android:valueFrom="0"
+            android:valueTo="100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/price_text"
+            app:layout_constraintTop_toBottomOf="@id/price_text"
+            app:values="@array/initial_slider_values" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="158dp"
+            android:layout_height="41dp"
+            android:background="@drawable/button_gradient"
+            android:backgroundTint="@color/white"
+            android:entries="@array/items"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/category_text"
+            app:layout_constraintTop_toBottomOf="@id/category_text" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/slider_second"
+            android:layout_width="176dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="60dp"
+            android:backgroundTint="@color/white"
+            android:foregroundTint="@color/blue"
+            android:valueFrom="0"
+            android:valueTo="100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/accessibility_text"
+            app:layout_constraintTop_toBottomOf="@id/accessibility_text"
+            app:values="@array/initial_slider_values" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

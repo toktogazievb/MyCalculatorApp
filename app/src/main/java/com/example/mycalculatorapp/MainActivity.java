@@ -1,7 +1,9 @@
 package com.example.mycalculatorapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private Double first, second, result, number;
     private Boolean isOperationClick, isDotLine;
     private int currentOperation;
+    private Button button;
+    private Intent intent;
 
 
     @Override
@@ -33,13 +37,16 @@ public class MainActivity extends AppCompatActivity {
 //            return insets;
 //        });
         textView = findViewById(R.id.text_view);
+        button = findViewById(R.id.btn_result);
+        intent = new Intent(MainActivity.this, SecondActivity.class);
+
     }
 
     public void onNumberClick(View view) {
         String text = ((MaterialButton) view).getText().toString();
         if (text.equals("AC")) {
             textView.setText("0");
-            isDotLine=false;
+            isDotLine = false;
         } else if (textView.getText().toString().equals("0") || isOperationClick) {
             if (text.equals(".")) {
                 textView.setText("0.");
@@ -104,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         if (view.getId() == R.id.btn_plus || view.getId() == R.id.btn_minus || view.getId() == R.id.btn_divide || view.getId() == R.id.btn_multiply) {
             first = Double.valueOf(textView.getText().toString());
             currentOperation = view.getId();
+            button.setEnabled(false);
         } else if (view.getId() == R.id.btn_equals) {
             second = Double.valueOf(textView.getText().toString());
             if (currentOperation == R.id.btn_plus) {
@@ -115,6 +123,11 @@ public class MainActivity extends AppCompatActivity {
             } else if (currentOperation == R.id.btn_divide) {
                 doDivide();
             }
+            button.setText(result.toString());
+            button.setEnabled(true);
+            startActivity(intent);
+            intent.putExtra("key1",result.toString());
+
         }
         isOperationClick = true;
     }
