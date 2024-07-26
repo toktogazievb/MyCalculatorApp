@@ -1,8 +1,10 @@
 package com.example.mycalculatorapp;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -16,6 +18,7 @@ import com.google.android.material.slider.RangeSlider;
 public class SecondActivity extends AppCompatActivity {
 
     private TextView textView;
+    boolean isPressed=false;
 
 
     @Override
@@ -27,18 +30,21 @@ public class SecondActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Intent intentTwo = new Intent(SecondActivity.this, MainActivity.class);
-
         textView = findViewById(R.id.result_text);
-        String text = getIntent().getStringExtra("key");
+        String text = getIntent().getStringExtra("key1");
         textView.setText(text);
     }
 
     public void onHeartClick(View view) {
-        view.setForeground(getDrawable(R.color.white));
+        if(isPressed){
+            view.setBackgroundResource(R.drawable.ic_full_heart);
+        }else{
+            view.setBackgroundResource(R.drawable.ic_heart);
+        }
+        isPressed=!isPressed;
     }
 
     public void onNextClick(View view) {
-        finish();
+        finishAffinity();
     }
 }
